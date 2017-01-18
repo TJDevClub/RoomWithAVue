@@ -1,0 +1,20 @@
+html, body {
+   margin: 0;
+   padding: 0;
+   height: 100%;
+   background-color: #242424;
+   font-family: Helvetica Neue, Arial, Sans-Serif;
+}
+
+.card {
+    width: 40vw;
+    height: 30vw;
+    background-color: #eee;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.card .name {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
