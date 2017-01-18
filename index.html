@@ -7,15 +7,18 @@
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-       <div id="app" class="app">
-            <input type="checkbox" name="LikedOnly" id="likedOnly" v-model="likedOnly"/>
+        <div id="app" class="app">
             <ul v-if="!likedOnly">
                 <sw-character :options="true" v-on:yes="addToLiked" @no="discard" v-for="(character, index) in characters" :visible="index == 0" v-bind:character="character"></sw-character>
             </ul>
-             <ul v-if="likedOnly">
+            <ul v-if="likedOnly">
                 <sw-character v-for="(character, index) in liked" :options="false" :visible="true" v-bind:character="character"></sw-character>
             </ul>
-       </div>        
+            <div class="checkbox">
+                <input type="checkbox" name="LikedOnly" id="likedOnly" v-model="likedOnly"/>
+                <label for="likedOnly">View Liked Characters</label>
+            </div>
+        </div>        
         <script src="index.js"></script>
     </body>
 </html>

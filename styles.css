@@ -2,19 +2,83 @@ html, body {
    margin: 0;
    padding: 0;
    height: 100%;
-   background-color: #242424;
+   background-color: #fff;
    font-family: Helvetica Neue, Arial, Sans-Serif;
+}
+
+li {
+    list-style: none;
 }
 
 .card {
     width: 40vw;
-    height: 30vw;
-    background-color: #eee;
+    background-color: #fff;
     padding: 20px;
     border-radius: 5px;
+    border: 1px solid black;
+    margin: 0 auto;
+    /* position: absolute; */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+}
+
+.card:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+
 }
 
 .card .name {
     font-weight: bold;
     font-size: 1.5rem;
+}
+
+.card.liked {
+    transform: rotateZ(90%);
+}
+
+.buttons {
+    clear: both;
+}
+
+button {
+    margin-top: 10vw;
+    border: none;
+    background-color: #fff;
+    width: 10vw;
+    height: 10vw;
+    bottom: 0px;
+    border-radius: 50%;
+    transition: box-shadow 0.2s ease-in-out;
+    box-shadow: 0px 0px 3px 1px #222;
+    font-size: 3em;
+}
+
+button:hover {
+    box-shadow: 0px 0px 3px 3px #aaa;
+}
+
+button.yes {
+    float: left;
+}
+
+button.no {
+    float: right;;
+}
+
+.fade-enter-active, .fade-leave-active {
+      transition: opacity .5s
+
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+      opacity: 0
+}
+
+.checkbox {
+    margin-left: 50%;
+    transform: translateX(-50%);
 }

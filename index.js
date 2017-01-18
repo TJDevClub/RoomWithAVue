@@ -51,7 +51,7 @@ var app = new Vue({
 
 Vue.component('sw-character', {
     props: ['character', 'visible', 'options'],
-    template: `<li class="card" v-if="visible">
+    template: `<transition name="fade"><li class="card" v-if="visible" :class="likedClass">
                 <div class="name">
                     {{ character.name }}
                 </div>
@@ -62,18 +62,24 @@ Vue.component('sw-character', {
                         <li>Eye Color: {{ character.eye_color }}</li>
                     </ul>
                 </div>
-                <div v-if="options">
-                    <button v-on:click="yesClick">Yes</button> 
-                    <button @click="noClick">No</button> 
+                <div v-if="options" class="buttons">
+                    <button v-on:click="yesClick" class="yes">&#128175;</button> 
+                    <button @click="noClick" class="no">&#10060;</button> 
                 </div>
-            </li>`,
-   methods: {
+            </li></transition>`,
+    methods: {
         yesClick: function () {
+            console.log(this.likedClass);
             this.$emit('yes');
         },
 
-       noClick: function () {
-           this.$emit('no');
-       }
+        noClick: function () {
+            this.$emit('no');
+        }
+    },
+    data: function () {
+        return {
+            likedClass: ''    
+        };
     }
 });
